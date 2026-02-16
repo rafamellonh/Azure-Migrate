@@ -8,7 +8,7 @@ No Portal do Azure:
 
 🔎 Pesquise por **Azure Migrate** e abra o serviço.
 
-![Exemplo de busca por Azure Migrate no Azure Portal](https://learn.microsoft.com/azure/migrate/media/overview/azure-migrate-portal-search.png)
+![Exemplo de busca por Azure Migrate no Azure Portal](https://learn.microsoft.com/pt-br/azure/migrate/media/create-manage-projects/create-project.png?view=migrate#lightbox)
 
 ---
 
@@ -26,7 +26,7 @@ Na seção **Servidores, bancos de dados e aplicativos Web**:
 
 👉 Clique em **Criar projeto**.
 
-![Botão Criar Projeto](https://learn.microsoft.com/azure/migrate/media/overview/azure-migrate-create-project.png)
+![Botão Criar Projeto](https://learn.microsoft.com/pt-br/azure/migrate/media/create-manage-projects/create-project.png?view=migrate#lightbox)
 
 ---
 
