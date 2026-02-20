@@ -1,13 +1,13 @@
 # Azure Migrate – Visão Geral
 
-O **Azure Migrate** é um serviço da Microsoft que fornece um **hub unificado para planejar, avaliar e migrar workloads locais (on-premises) e de outras nuvens para o Azure** com o mínimo de risco e tempo de inatividade. :contentReference[oaicite:0]{index=0}
+O **Azure Migrate** é um serviço da Microsoft que fornece um **hub unificado para planejar, avaliar e migrar workloads locais (on-premises) e de outras nuvens para o Azure** com o mínimo de risco e tempo de inatividade.   
 
 ---
 
 ## 📌 O que é o Azure Migrate
 
 - Uma **plataforma centralizada** para gerenciar toda a jornada de migração para o Azure.  
-- Ajuda a **descobrir, avaliar e migrar** servidores, bancos de dados, web apps, desktops virtuais e cargas de trabalho completas. :contentReference[oaicite:1]{index=1}
+- Ajuda a **descobrir, avaliar e migrar** servidores, bancos de dados, web apps, desktops virtuais e cargas de trabalho completas.   
 
 ---
 
@@ -21,7 +21,7 @@ O **Azure Migrate** é um serviço da Microsoft que fornece um **hub unificado p
 - Avalia **prontidão para Azure** — identifica cargas de trabalho adequadas ou que exigem mudanças antes da migração.  
 - Recomenda **dimensionamento adequado (right-sizing)** para VMs, bancos de dados e serviços.  
 - Estima **custos mensais no Azure** com base nas configurações recomendadas.  
-- Analisa **dependências** entre sistemas (quando configurado). :contentReference[oaicite:3]{index=3}
+- Analisa **dependências** entre sistemas (quando configurado).   
 
 ### 3. **Migração & Execução**
 - Utiliza ferramentas integradas ou de parceiros para mover cargas de trabalho com **baixo impacto operacional**.  
@@ -31,11 +31,11 @@ O **Azure Migrate** é um serviço da Microsoft que fornece um **hub unificado p
 
 ## 🎯 Principais Benefícios
 
-- **Plataforma unificada:** você gerencia descoberta, avaliação, planejamento e execução em um único lugar. :contentReference[oaicite:5]{index=5}  
-- **Suporte a múltiplos tipos de workloads:** servidores, bancos de dados, aplicações, desktops virtuais e mais. :contentReference[oaicite:6]{index=6}  
-- **Redução de riscos e tempo de inatividade:** planeje e migre com confiança, minimizando interrupções. :contentReference[oaicite:7]{index=7}  
-- **Estimativas de custo e otimização:** calcula custos projetados no Azure e ajuda na estratégia de economia. :contentReference[oaicite:8]{index=8}  
-- **Ferramentas extensíveis:** integra ferramentas de terceiros e parceiros para necessidades específicas de migração. :contentReference[oaicite:9]{index=9}
+- **Plataforma unificada:** você gerencia descoberta, avaliação, planejamento e execução em um único lugar.     
+- **Suporte a múltiplos tipos de workloads:** servidores, bancos de dados, aplicações, desktops virtuais e mais.   
+- **Redução de riscos e tempo de inatividade:** planeje e migre com confiança, minimizando interrupções.   
+- **Estimativas de custo e otimização:** calcula custos projetados no Azure e ajuda na estratégia de economia.     
+- **Ferramentas extensíveis:** integra ferramentas de terceiros e parceiros para necessidades específicas de migração.   
 
 ---
 

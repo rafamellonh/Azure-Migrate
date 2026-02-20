@@ -1,7 +1,7 @@
 # Azure Migrate – Meta de Dimensionamento Adequado (Right-Sizing)
 
 O **dimensionamento adequado** no Azure Migrate ajuda a recomendar o **tamanho ideal das VMs e discos de destino no Azure** com base na análise da carga de trabalho avaliada.  
-As recomendações de tamanho são geradas **depois de verificar a prontidão da carga para Azure** e influenciam também **estimativas de custos de hospedagem**. :contentReference[oaicite:0]{index=0}
+As recomendações de tamanho são geradas **depois de verificar a prontidão da carga para Azure** e influenciam também **estimativas de custos de hospedagem**.   
 
 ---
 
@@ -10,7 +10,7 @@ As recomendações de tamanho são geradas **depois de verificar a prontidão da
 Fornecer recomendações de **tamanho de destino corretas para suas cargas de trabalho**, evitando:
 
 - **Superprovisionamento** — o que pode aumentar custos sem ganhos de desempenho.  
-- **Subdimensionamento** — que pode impactar a performance das aplicações no Azure. :contentReference[oaicite:1]{index=1}
+- **Subdimensionamento** — que pode impactar a performance das aplicações no Azure.   
 
 ---
 
@@ -30,7 +30,7 @@ O Azure Migrate oferece **2 métodos de dimensionamento**:
 
 - Não usa dados de desempenho — baseia-se apenas no **tamanho e configuração atuais no local**.  
 - A recomendação de computação e armazenamento segue diretamente a configuração existente.  
-- Útil quando não há dados de desempenho disponíveis ou quando se deseja manter o “tamanho atual”. :contentReference[oaicite:3]{index=3}
+- Útil quando não há dados de desempenho disponíveis ou quando se deseja manter o “tamanho atual”.   
 
 ---
 
@@ -48,7 +48,7 @@ Quando há um appliance de descoberta ativo:
 
 - O sistema identifica um **valor de utilização** (por exemplo, percentil 95) para cada métrica.  
 - Exemplo: um servidor com 16 vCPUs pode usar apenas 20% das CPUs no percentil 95 → VM recomendada com **4 vCPUs**.  
-- Um **fator de conforto** pode ampliar essa recomendação (ex.: 1.5x → 8 vCPUs). :contentReference[oaicite:5]{index=5}
+- Um **fator de conforto** pode ampliar essa recomendação (ex.: 1.5x → 8 vCPUs).   
 
 ### 💽 Dimensionamento de Discos
 
@@ -78,4 +78,4 @@ Quando há um appliance de descoberta ativo:
 
 - Após definir o critério de dimensionamento, execute a **avaliação no Azure Migrate**.  
 - Revise os resultados de right-sizing no **relatório de avaliação**.  
-- Use as recomendações para fins de **planejamento de migração e estimativas de custo**. :contentReference[oaicite:8]{index=8}
+- Use as recomendações para fins de **planejamento de migração e estimativas de custo**.   

@@ -1,12 +1,12 @@
 # Azure Migrate – Visão Geral de Migração de Servidores
 
-Este artigo descreve os **métodos de migração de servidores** usando o Azure Migrate, explicando quando usar **migração sem agente (agentless)** ou **baseada em agente**, e como esses métodos se aplicam a diferentes tipos de servidores. :contentReference[oaicite:0]{index=0}
+Este artigo descreve os **métodos de migração de servidores** usando o Azure Migrate, explicando quando usar **migração sem agente (agentless)** ou **baseada em agente**, e como esses métodos se aplicam a diferentes tipos de servidores.   
 
 ---
 
 ## 🔄 Métodos de Migração para Servidores
 
-O Azure Migrate utiliza a ferramenta **Migrações para Azure: Migração e Modernização** para mover servidores locais (on-premises) para o Azure. :contentReference[oaicite:1]{index=1}
+O Azure Migrate utiliza a ferramenta **Migrações para Azure: Migração e Modernização** para mover servidores locais (on-premises) para o Azure.   
 
 ### 🧠 1. Migração **Sem Agente** (Recomendada)
 
@@ -28,7 +28,7 @@ Use este método quando uma ou mais das seguintes condições se aplicarem:
 - O **sistema operacional convidado não é compatível** com a hidratação sem agente.  
 - **Configurações de disco/boot exigem suporte baseado em agente**.  
 - **Fonte não é VMware ou Hyper-V** (por exemplo, servidores físicos, AWS, GCP, Xen, KVM).  
-- Neste caso, **um agente (Mobility Service)** é instalado em cada máquina para habilitar replicação e migração. :contentReference[oaicite:3]{index=3}
+- Neste caso, **um agente (Mobility Service)** é instalado em cada máquina para habilitar replicação e migração.   
 
 ---
 
@@ -51,7 +51,7 @@ Use este método quando uma ou mais das seguintes condições se aplicarem:
   - Provedor do Azure Site Recovery e agentes são instalados nos hosts/clusters, sem necessidade de agentes nas VMs.  
 - **Baseado em agente:**  
   - Use quando acesso ao host não está disponível ou as condições sem agente falham.  
-  - Trate a VM como servidor físico. :contentReference[oaicite:5]{index=5}
+  - Trate a VM como servidor físico.   
 
 ---
 

@@ -1,12 +1,12 @@
 # Migrar VMs VMware vSphere para Azure (Baseado em Agente)
 
-Este tutorial mostra como migrar máquinas virtuais **VMware vSphere** para o **Azure** usando a ferramenta **Migração e modernização** com **migração baseada em agente** — indicada quando a migração sem agente não é possível ou suportada. :contentReference[oaicite:0]{index=0}
+Este tutorial mostra como migrar máquinas virtuais **VMware vSphere** para o **Azure** usando a ferramenta **Migração e modernização** com **migração baseada em agente** — indicada quando a migração sem agente não é possível ou suportada.   
 
 ---
 
 ## 🎯 Objetivo
 
-Você aprenderá como: :contentReference[oaicite:1]{index=1}
+Você aprenderá como:   
 
 1. Preparar o **Azure** para migração baseada em agente.  
 2. Preparar o ambiente VMware e contas necessárias.  
@@ -19,13 +19,13 @@ Você aprenderá como: :contentReference[oaicite:1]{index=1}
 
 ## 🧰 1. Pré-requisitos
 
-Antes de começar: :contentReference[oaicite:3]{index=3}
+Antes de começar:   
 
 - Revise a **arquitetura de migração baseada em agente** para VMware. :contentReference[oaicite:4]{index=4}  
 - Permissões no Azure:
   - Permissão de **Colaborador (Contributor)** ou **Proprietário (Owner)**.  
-  - Função de **Virtual Machine Contributor** para criar VMs e gravar em discos gerenciados. :contentReference[oaicite:5]{index=5}  
-- Configurar **Rede Virtual (VNet)** no Azure onde VMs migradas serão ingressadas. :contentReference[oaicite:6]{index=6}  
+  - Função de **Virtual Machine Contributor** para criar VMs e gravar em discos gerenciados.     
+- Configurar **Rede Virtual (VNet)** no Azure onde VMs migradas serão ingressadas.   
 - Preparar contas:
   - Conta no **vCenter Server** para permitir descoberta de VMs.  
   - Conta com permissões para instalar o **Mobility Service (agente)** nas VMs. :contentReference[oaicite:7]{index=7}
@@ -38,7 +38,7 @@ Antes de começar: :contentReference[oaicite:3]{index=3}
 2. Verificar que sua conta Azure tem permissões para:
    - Criar VMs e discos no Azure.  
    - Acessar a população de recursos para criar grupos de recursos e redes.  
-3. Configurar a **VNet/Sub-rede de destino** onde as VMs serão conectadas após migração. :contentReference[oaicite:8]{index=8}
+3. Configurar a **VNet/Sub-rede de destino** onde as VMs serão conectadas após migração.   
 
 ---
 
@@ -46,7 +46,7 @@ Antes de começar: :contentReference[oaicite:3]{index=3}
 
 1. Configure uma conta no **vCenter Server** com permissões suficientes para:
    - Descobrir VMs.  
-   - Operações de inventário e gerenciamento de rede. :contentReference[oaicite:9]{index=9}  
+   - Operações de inventário e gerenciamento de rede.     
 2. Prepare uma conta que permita instalar o **Mobility Service** dentro de cada VM que será migrada.  
    - No Windows: conta com privilégios de administrador local/domínio.  
    - No Linux: conta de **root**. :contentReference[oaicite:10]{index=10}

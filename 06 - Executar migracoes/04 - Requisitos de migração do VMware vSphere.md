@@ -1,6 +1,6 @@
 # Azure Migrate – Matriz de Suporte para Migração VMware vSphere
 
-Este guia lista os **requisitos, limitações e suporte** para migrar máquinas virtuais **VMware vSphere** para o Azure usando o serviço **Azure Migrate + Migração e Modernização**. :contentReference[oaicite:1]{index=1}
+Este guia lista os **requisitos, limitações e suporte** para migrar máquinas virtuais **VMware vSphere** para o Azure usando o serviço **Azure Migrate + Migração e Modernização**.   
 
 ---
 
@@ -9,7 +9,7 @@ Este guia lista os **requisitos, limitações e suporte** para migrar máquinas 
 Você pode migrar VMs VMware vSphere ao Azure de duas maneiras: :contentReference[oaicite:2]{index=2}
 
 - **Migração sem agente (Agentless)**  
-  Não requer instalação de software nas VMs; usa um *appliance* para replicar. :contentReference[oaicite:3]{index=3}
+  Não requer instalação de software nas VMs; usa um *appliance* para replicar.   
 
 - **Migração baseada em agente (Agent-Based)**  
   Instala um agente (Mobility Service) dentro das VMs para habilitar a replicação. :contentReference[oaicite:4]{index=4}
@@ -23,7 +23,7 @@ Você pode migrar VMs VMware vSphere ao Azure de duas maneiras: :contentReferenc
 - **vCenter Server:** versões 8.0, 7.0, 6.7 ou 6.5.  
 - **Hosts ESXi:** versões 8.0, 7.0, 6.7 ou 6.5.  
 - O *appliance* pode conectar até **10 vCenter Servers**.  
-- A conta VMware precisa de **permissões completas** em datacenter, clusters, hosts, VMs e datastores. :contentReference[oaicite:5]{index=5}
+- A conta VMware precisa de **permissões completas** em datacenter, clusters, hosts, VMs e datastores.   
 
 ### 🔹 Requisitos da VM
 
@@ -44,7 +44,7 @@ Você pode migrar VMs VMware vSphere ao Azure de duas maneiras: :contentReferenc
 - **Sem suporte a IPv6**.  
 - **Discos NVMe** não são suportados.  
 - **Clusters de disco compartilhado e NFS volumes** não serão replicados.  
-- Até **300 replicações simultâneas** por vCenter com um dispositivo, ou **500** com um dispositivo de expansão. :contentReference[oaicite:8]{index=8}
+- Até **300 replicações simultâneas** por vCenter com um dispositivo, ou **500** com um dispositivo de expansão.   
 
 ---
 
@@ -53,7 +53,7 @@ Você pode migrar VMs VMware vSphere ao Azure de duas maneiras: :contentReferenc
 - Requer instalação do **Mobility Service** nas VMs para habilitar a replicação.  
 - Deve ser usada quando a migração sem agente **não é possível**, por exemplo:
   - VMs com requisitos específicos ou limitações do ambiente.  
-  - Hipervisores/versões que não atendem aos requisitos sem agente. :contentReference[oaicite:9]{index=9}
+  - Hipervisores/versões que não atendem aos requisitos sem agente.   
 
 ---
 

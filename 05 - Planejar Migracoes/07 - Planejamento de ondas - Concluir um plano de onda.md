@@ -1,6 +1,6 @@
 # Azure Migrate – Como Completar um Plano de Onda (High-Fidelity Wave Plan)
 
-Este guia mostra como **completar e preparar um plano de onda de migração de alta fidelidade** no Azure Migrate — definindo destinos, tarefas, ferramentas, pré-requisitos e configuração para que a onda esteja **pronta para execução**. :contentReference[oaicite:1]{index=1}
+Este guia mostra como **completar e preparar um plano de onda de migração de alta fidelidade** no Azure Migrate — definindo destinos, tarefas, ferramentas, pré-requisitos e configuração para que a onda esteja **pronta para execução**.   
 
 ---
 
@@ -22,7 +22,7 @@ Tudo isso ajuda a garantir que a migração ou modernização ocorra sem surpres
 Antes de iniciar a migração de workloads e aplicações:
 
 - **Determine os destinos no Azure** apropriados para cada workload.  
-- Utilize os **resultados da avaliação** (assessments) para saber qual destino o Azure Migrate recomenda. :contentReference[oaicite:3]{index=3}  
+- Utilize os **resultados da avaliação** (assessments) para saber qual destino o Azure Migrate recomenda.     
 - Atenção: em alguns casos (ex.: configurações de SKU detalhadas), apenas migrações integradas oferecem recomendações completas. :contentReference[oaicite:4]{index=4}
 
 ---
@@ -35,7 +35,7 @@ No planejamento de onda, você pode:
 
 - **Linkar uma avaliação** existente para obter destinos e caminhos recomendados.  
 - **Adicionar tarefas gerais da aplicação** além das migrações (manuais, revisões, dependências, testes).  
-- Essas tarefas ficam visíveis e rastreáveis no plano. :contentReference[oaicite:5]{index=5}
+- Essas tarefas ficam visíveis e rastreáveis no plano.   
 
 ---
 
@@ -71,14 +71,14 @@ Depois de:
 - Ajustar datas planejadas,
 
 o estado da onda muda para **Ready for Execution** (*Pronto para Execução*).  
-Isso indica que a migração pode ser iniciada conforme o cronograma. :contentReference[oaicite:8]{index=8}
+Isso indica que a migração pode ser iniciada conforme o cronograma.   
 
 ---
 
 ## 🗓 Datas e Planejamento
 
 - Você pode **ajustar datas planejadas de início e término** diretamente nas configurações da onda, conforme necessário.  
-- Datas bem definidas ajudam no acompanhamento e nas metas de migração. :contentReference[oaicite:9]{index=9}
+- Datas bem definidas ajudam no acompanhamento e nas metas de migração.   
 
 ---
 

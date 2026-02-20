@@ -1,6 +1,6 @@
 # 📊 Azure Migrate – Matriz de Suporte para VMware vSphere (Resumo)
 
-Este documento apresenta os **requisitos e o suporte disponível** ao usar o **Azure Migrate** para avaliar e migrar máquinas virtuais VMware vSphere para o Microsoft Azure. :contentReference[oaicite:1]{index=1}
+Este documento apresenta os **requisitos e o suporte disponível** ao usar o **Azure Migrate** para avaliar e migrar máquinas virtuais VMware vSphere para o Microsoft Azure.   
 
 ---
 
@@ -22,7 +22,7 @@ Ela é útil para garantir que o ambiente VMware esteja pronto para uso com o Az
 ### 🪟 Windows e Linux
 
 - Todas as versões de Windows e Linux podem ser **avaliadas para migração**.
-- Não há limitação explícita do SO para assessment — basta que a VM esteja acessível via vCenter. :contentReference[oaicite:3]{index=3}
+- Não há limitação explícita do SO para assessment — basta que a VM esteja acessível via vCenter.   
 
 ---
 
@@ -41,7 +41,7 @@ O **appliance do Azure Migrate** é usado para:
 - Software inventory
 - Dados de performance
 
-Esse appliance roda em seu ambiente VMware e envia dados para o Azure Migrate. :contentReference[oaicite:5]{index=5}
+Esse appliance roda em seu ambiente VMware e envia dados para o Azure Migrate.   
 
 ### 🌐 Funcionalidades habilitadas pelo appliance
 
@@ -60,8 +60,8 @@ Isso vai além de descobrir a VM física:
 
 ### 📌 Requisitos para Software Inventory
 
-- **VMware Tools** deve estar instalado e em execução (versão 10.2.1 ou mais recente) :contentReference[oaicite:8]{index=8}  
-- Para Windows, o **PowerShell 2.0 ou posterior** deve estar presente na VM :contentReference[oaicite:9]{index=9}
+- **VMware Tools** deve estar instalado e em execução (versão 10.2.1 ou mais recente)     
+- Para Windows, o **PowerShell 2.0 ou posterior** deve estar presente na VM   
 
 Sem essas condições, o software inventory pode não coletar corretamente os dados ou falhar.
 

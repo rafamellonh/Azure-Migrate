@@ -1,12 +1,12 @@
 # Migrar VMs VMware para Azure (Sem Agente) – Azure Migrate
 
-Este tutorial ensina como **migrar máquinas virtuais VMware on-premises para o Azure** usando o **Azure Migrate + Migração e Modernização** no modo **sem agente**, que é o método recomendado. :contentReference[oaicite:0]{index=0}
+Este tutorial ensina como **migrar máquinas virtuais VMware on-premises para o Azure** usando o **Azure Migrate + Migração e Modernização** no modo **sem agente**, que é o método recomendado.   
 
 ---
 
 ## 🎯 Objetivo do Tutorial
 
-Neste tutorial, você aprende a: :contentReference[oaicite:1]{index=1}
+Neste tutorial, você aprende a:   
 
 1. Adicionar a ferramenta **Migração e Modernização** ao projeto Azure Migrate.  
 2. Descobrir VMs VMware que serão migradas.  
@@ -18,7 +18,7 @@ Neste tutorial, você aprende a: :contentReference[oaicite:1]{index=1}
 
 ## 🧰 Pré-requisitos
 
-Antes de começar: :contentReference[oaicite:3]{index=3}
+Antes de começar:   
 
 ✔ Concluir o **tutorial de preparação do Azure e VMware**.  
 ✔ (Recomendado) concluir o **tutorial de avaliação** das VMs VMware antes da migração.  
@@ -30,7 +30,7 @@ Antes de começar: :contentReference[oaicite:3]{index=3}
 
 ## 🔧 1. Configurar o Dispositivo de Migração
 
-A **Ferramenta de Migração e Modernização** executa um **appliance leve no VMware** (VM) que: :contentReference[oaicite:5]{index=5}
+A **Ferramenta de Migração e Modernização** executa um **appliance leve no VMware** (VM) que:   
 
 - Faz *discovery* e *assessement*.  
 - Permite **replicação sem agente** das VMs.  
@@ -40,13 +40,13 @@ Configure o appliance de uma das formas: :contentReference[oaicite:6]{index=6}
 - **OVA Template**: Implante uma VM no vCenter usando o OVA baixado.  
 - **Script PowerShell**: Use um script para instalar o appliance onde o OVA não for possível (ex.: Azure Gov). :contentReference[oaicite:7]{index=7}
 
-Depois de criado, conecte e *registre* o appliance no **projeto Azure Migrate**. :contentReference[oaicite:8]{index=8}
+Depois de criado, conecte e *registre* o appliance no **projeto Azure Migrate**.   
 
 ---
 
 ## ☁️ 2. Replicar as VMs
 
-Com o appliance configurado e a descoberta concluída: :contentReference[oaicite:9]{index=9}
+Com o appliance configurado e a descoberta concluída:   
 
 1. No portal Azure, vá ao **projeto Azure Migrate > Migração e Modernização**.  
 2. Selecione **Replicar**.  

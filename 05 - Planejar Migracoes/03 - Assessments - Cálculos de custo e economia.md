@@ -1,6 +1,6 @@
 # Azure Migrate – Estimativa de Custo de Avaliações
 
-As avaliações do **Azure Migrate** estimam o **custo mensal de hospedagem** das cargas recomendadas no Azure com base nos destinos dimensionados adequadamente. Essas estimativas são calculadas considerando as tarifas da **região selecionada**, ofertas aplicáveis e o **programa de licenciamento** configurado na avaliação. :contentReference[oaicite:0]{index=0}
+As avaliações do **Azure Migrate** estimam o **custo mensal de hospedagem** das cargas recomendadas no Azure com base nos destinos dimensionados adequadamente. Essas estimativas são calculadas considerando as tarifas da **região selecionada**, ofertas aplicáveis e o **programa de licenciamento** configurado na avaliação.   
 
 ---
 
@@ -11,7 +11,7 @@ As avaliações do **Azure Migrate** estimam o **custo mensal de hospedagem** da
 - As estimativas dependem de:
   - Taxas da **região** escolhida.  
   - **Ofertas e descontos** aplicáveis.  
-  - **Programa de licenciamento** selecionado. :contentReference[oaicite:1]{index=1}
+  - **Programa de licenciamento** selecionado.   
 
 ---
 
@@ -32,7 +32,7 @@ As seguintes configurações de avaliação afetam as estimativas de custo:
   - **Pagamento conforme o uso**
   - **Contrato Enterprise Agreement (EA)**
   - **Pagamento conforme o uso para Desenvolvimento/Teste**
-- Para usar **Instâncias Reservadas** ou **Plano de Poupança**, deve selecionar **Pay-as-you-go** como oferta/licenciamento. :contentReference[oaicite:3]{index=3}
+- Para usar **Instâncias Reservadas** ou **Plano de Poupança**, deve selecionar **Pay-as-you-go** como oferta/licenciamento.   
 
 ### 💱 Moeda
 
@@ -41,7 +41,7 @@ As seguintes configurações de avaliação afetam as estimativas de custo:
 ### 📊 Desconto (%)
 
 - Qualquer desconto **específico da assinatura** é aplicado além da oferta selecionada.  
-- Padrão é **0%** se não configurado. :contentReference[oaicite:5]{index=5}
+- Padrão é **0%** se não configurado.   
 
 ### ⏱️ Tempo de Atividade da VM
 
@@ -58,8 +58,8 @@ As seguintes configurações de avaliação afetam as estimativas de custo:
 
 ## ▶️ Como os Cálculos Funcionam (Resumo)
 
-1. A avaliação gera recomendações de **tamanho adequado** dos recursos Azure. :contentReference[oaicite:8]{index=8}  
-2. Com base nesses destinos, o Azure Migrate calcula o **custo mensal**: soma de recursos, licenças e serviços auxiliares conforme as configurações de preço. :contentReference[oaicite:9]{index=9}  
+1. A avaliação gera recomendações de **tamanho adequado** dos recursos Azure.     
+2. Com base nesses destinos, o Azure Migrate calcula o **custo mensal**: soma de recursos, licenças e serviços auxiliares conforme as configurações de preço.     
 3. O resultado dá uma visão do custo esperado para hospedar os recursos migrados no Azure. :contentReference[oaicite:10]{index=10}
 
 ---

@@ -5,7 +5,7 @@ Cada avaliação produz **4 resultados principais**:
 1. **Prontidão para Azure**  
 2. **Recomendações de dimensionamento adequado**  
 3. **Detalhes de custo**  
-4. **Diretrizes de migração** :contentReference[oaicite:0]{index=0}
+4. **Diretrizes de migração**   
 
 ---
 
@@ -16,7 +16,7 @@ Avalia se os workloads estão prontos para migrar para Azure, com categorias tí
 - **Pronto para Azure** – Pode ser migrado “as-is”.  
 - **Condicionalmente pronto** – Pode iniciar no Azure, mas pode ter suporte limitado.  
 - **Não pronto** – Não poderá ser iniciado no Azure até que problemas sejam corrigidos.  
-- **Preparação desconhecida** – Sem dados suficientes para determinar a prontidão. :contentReference[oaicite:1]{index=1}
+- **Preparação desconhecida** – Sem dados suficientes para determinar a prontidão.   
 
 ---
 
@@ -40,7 +40,7 @@ Os dados de desempenho e percentis configurados influenciam as recomendações f
 Após escolher os candidatos de destino com dimensionamento adequado:
 
 - A avaliação calcula o **custo mensal estimado total**, incluindo recursos, licenças e serviços auxiliares (ex.: segurança).  
-- Se houver múltiplos alvos possíveis, a estratégia de custo (por exemplo, *minimizar custo*) determina o recomendado. :contentReference[oaicite:3]{index=3}
+- Se houver múltiplos alvos possíveis, a estratégia de custo (por exemplo, *minimizar custo*) determina o recomendado.   
 
 ---
 
@@ -54,7 +54,7 @@ Após escolher os candidatos de destino com dimensionamento adequado:
 
 ## 📌 Observações Importantes
 
-- As avaliações são **instantâneos de dados num ponto no tempo** — resultados podem mudar conforme novos dados ou alterações no ambiente. :contentReference[oaicite:5]{index=5}  
+- As avaliações são **instantâneos de dados num ponto no tempo** — resultados podem mudar conforme novos dados ou alterações no ambiente.     
 - A cobertura de desempenho **não se aplica** quando os dados vêm de arquivo CSV importado ou em avaliações “as-is” sem performance. :contentReference[oaicite:6]{index=6}
 
 ---

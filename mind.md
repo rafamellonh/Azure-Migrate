@@ -2,9 +2,9 @@
 
 ## 🌟 Visão geral (repo)
 - Estrutura do repositório
-  - 01 - QuickStarts :contentReference[oaicite:1]{index=1}
+  - 01 - QuickStarts   
   - 02 - Conceitos Principais :contentReference[oaicite:2]{index=2}
-  - 03 - Detectar inventario :contentReference[oaicite:3]{index=3}
+  - 03 - Detectar inventario   
 - Fases do Azure Migrate (visão macro)
   - Descoberta → Avaliação → Migração :contentReference[oaicite:4]{index=4}
 
@@ -42,13 +42,13 @@
 
 ## 2) 📚 Conceitos principais (02 - Conceitos Principais)
 - 2.1 Azure Migrate “hub”
-  - Centraliza descoberta, avaliação e migração :contentReference[oaicite:5]{index=5}
+  - Centraliza descoberta, avaliação e migração   
 - 2.2 Appliance
   - VM dedicada (no VMware) para coletar inventário/performance e enviar ao Azure *(inferido)*
 - 2.3 Descoberta vs Avaliação vs Migração
   - Descoberta: inventário + (opcional) dependências :contentReference[oaicite:6]{index=6}
   - Avaliação: sizing + custo :contentReference[oaicite:7]{index=7}
-  - Migração: replicação + teste + cutover :contentReference[oaicite:8]{index=8}
+  - Migração: replicação + teste + cutover   
 - 2.4 Modelos de migração *(inferido)*
   - Agentless (sem agente nas VMs)
   - Com agente (para dependências mais profundas, quando necessário)
@@ -85,7 +85,7 @@
   - Dependências/alertas (se habilitado) *(inferido)*
 - 4.3 Decisão
   - Lift-and-shift (VM no Azure)
-  - Replatform/modernizar (se fizer sentido) :contentReference[oaicite:9]{index=9}
+  - Replatform/modernizar (se fizer sentido)   
 
 ---
 

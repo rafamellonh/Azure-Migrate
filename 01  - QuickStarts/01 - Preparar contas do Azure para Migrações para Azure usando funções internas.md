@@ -4,7 +4,7 @@
 
 Este guia descreve como **preparar contas no Azure** para usar o serviço **Azure Migrate**, configurando o **Controle de Acesso Baseado em Função (RBAC)** com funções internas apropriadas.
 
-Isso garante que os usuários tenham apenas as permissões necessárias para as diferentes fases da migração, seguindo o princípio de **privilégio mínimo**. :contentReference[oaicite:0]{index=0}
+Isso garante que os usuários tenham apenas as permissões necessárias para as diferentes fases da migração, seguindo o princípio de **privilégio mínimo**.   
 
 ---
 
@@ -14,9 +14,9 @@ O Azure Migrate define três funções internas (built-in roles) que você pode 
 
 | Função | Permissões principais | Escopo |
 |--------|----------------------|--------|
-| **Azure Migrate Owner** | Permite criar e gerenciar projetos, descoberta, avaliação e migração completa. Também pode atribuir outras funções internas. | Grupo de Recursos ou Assinatura onde o projeto é criado. :contentReference[oaicite:1]{index=1} |
+| **Azure Migrate Owner** | Permite criar e gerenciar projetos, descoberta, avaliação e migração completa. Também pode atribuir outras funções internas. | Grupo de Recursos ou Assinatura onde o projeto é criado.    |
 | **Azure Migrate Decide and Plan Expert** | Permite operações de planejamento: descoberta, inventário, dependências, criação de caso de negócios e relatórios. | Grupo de Recursos ou Assinatura onde o projeto é criado. :contentReference[oaicite:2]{index=2} |
-| **Azure Migrate Execute Expert** | Permite operações de execução da migração: replicação, testes e monitoramento. | Grupo de Recursos ou Assinatura de origem e destino (se for diferente). :contentReference[oaicite:3]{index=3} |
+| **Azure Migrate Execute Expert** | Permite operações de execução da migração: replicação, testes e monitoramento. | Grupo de Recursos ou Assinatura de origem e destino (se for diferente).    |
 
 ---
 
@@ -32,7 +32,7 @@ O Azure Migrate define três funções internas (built-in roles) que você pode 
 ### 📊 Azure Migrate Decide and Plan Expert
 
 - Permissões limitadas apenas para tarefas de **planejamento** da migração.
-- Não pode criar o projeto nem atribuir funções. :contentReference[oaicite:5]{index=5}
+- Não pode criar o projeto nem atribuir funções.   
 
 ---
 
@@ -58,8 +58,8 @@ Para configurar o acesso:
 
 ## ✅ Verificar e Remover Acesso
 
-- Verifique permissões em **Controle de Acesso (IAM) → Verificar Acesso**. :contentReference[oaicite:8]{index=8}  
-- Os proprietários da assinatura ou do grupo de recursos podem remover funções atribuídas quando necessário. :contentReference[oaicite:9]{index=9}
+- Verifique permissões em **Controle de Acesso (IAM) → Verificar Acesso**.     
+- Os proprietários da assinatura ou do grupo de recursos podem remover funções atribuídas quando necessário.   
 
 ---
 
