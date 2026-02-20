@@ -1,261 +1,342 @@
-# GUIA COMPLETO E DETALHADO --- MIGRAR VMs DO VMWARE PARA AZURE
+# Guia passo a passo detalhado --- Migrar VMs VMware → Azure
 
 ------------------------------------------------------------------------
 
-# FASE 1 --- PLANEJAMENTO TÉCNICO
+# Fase 0 --- Planejamento e governança (obrigatório)
 
-## 1.1 Levantamento Completo do Ambiente VMware
+## Defina o escopo do projeto
 
-Para cada VM, documente:
+-   Lista de VMs candidatas (nome, OS, vCPU, RAM, discos, apps críticos,
+    owner).
+-   Dependências (aplicações dependentes, bancos, LDAP, storage
+    compartilhado).
+-   Criticidade de negócio --- categorize (prod, preprod, dev).
+-   Políticas de segurança e compliance que precisam ser mantidas.
 
--   Nome
--   Sistema operacional (versão exata)
--   vCPU
--   RAM
--   Tamanho de cada disco
--   Tipo de storage
--   IP atual
--   VLAN
--   Gateway
--   DNS configurado
--   Aplicação instalada
--   Dependências
--   Criticidade
--   Janela de manutenção
+## Defina a arquitetura alvo no Azure
 
-⚠️ Dependências mal mapeadas são a principal causa de falhas.
+-   Região(s) alvo.
+-   Sub-redes, NSGs, peering/VPN/ExpressRoute, Azure Firewall, Azure
+    Bastion se necessário.
+-   Política de identidade: AAD, role assignments, managed identities.
+-   Landing zones / RG naming, tags, naming conventions.
+-   Estratégia de alta disponibilidade: Availability Zones vs
+    Availability Sets.
 
-------------------------------------------------------------------------
+## Defina política de custo e licenciamento
 
-## 1.2 Validar Compatibilidade
+-   Use Azure Hybrid Benefit se aplicável.
+-   Decida uso de Reserved Instances / Savings Plan.
+-   Orçamento e responsáveis por aprovação.
 
-Verifique:
+## Defina critérios de sucesso e rollback
 
--   SO suportado no Azure
--   Disco do SO não é dinâmico
--   Não há discos RDM
--   Não há discos independentes
--   `/boot` no mesmo disco (Linux)
--   Não usa NVMe
+-   Checklists de validação pós-migração.
+-   Procedimento de rollback (o que será feito se cutover falhar).
+-   Comunicados para stakeholders.
 
 ------------------------------------------------------------------------
 
-# FASE 2 --- PLANEJAMENTO DE REDE
+# Fase 1 --- Descoberta e inventário (importante)
 
-## 2.1 Conectividade
+## Recolha informações no vSphere
 
-Definir:
+-   Exportar inventário: VM names, guest OS, CPUs, RAM, vDisk sizes,
+    NICs, guest tools, snapshots, storage usage.
+-   Coletar IPs, DNS, dependências.
 
--   VPN Site-to-Site
--   ExpressRoute
--   Conectividade temporária
+## Habilitar / verificar performance metrics
 
-## 2.2 Estrutura Azure
+-   Garantir coleta de CPU, memória, IOPS, throughput.
+-   Aguardar alguns dias para melhor right-sizing.
 
-Planejar:
+## Verifique requisitos operacionais das VMs
 
--   VNet principal
--   Subnets (Web/App/DB)
--   NSGs
--   Route Tables
--   Firewall Azure
--   Bastion
--   Private DNS
-
-## 2.3 Estratégia de IP
-
--   Manter IP?
--   Novo IP?
--   Atualização DNS?
--   Reduzir TTL 48h antes do cutover
+-   Confirmar que /boot está no mesmo disco (Linux).
+-   Remover discos independentes ou RDMs.
+-   Identificar sistemas fora de suporte.
 
 ------------------------------------------------------------------------
 
-# FASE 3 --- CRIAR PROJETO AZURE MIGRATE
+# Fase 2 --- Azure Migrate: projeto e avaliação
 
-1.  Portal Azure
-2.  Azure Migrate
-3.  Criar projeto (Subscription, RG, Região)
+## Criar projeto Azure Migrate
 
-------------------------------------------------------------------------
+Portal Azure → Azure Migrate → Criar projeto.
 
-# FASE 4 --- INSTALAR APPLIANCE
+## Implantar appliance Azure Migrate no vCenter
 
-## 4.1 Deploy OVA
+-   Baixar OVA.
+-   Deploy OVF Template.
+-   IP estática e DNS válido.
+-   Liberar saída HTTPS (443).
+-   Registrar appliance no projeto.
 
-1.  Deploy OVF Template no vCenter
-2.  Escolher datastore
-3.  Configurar rede
-4.  IP fixo recomendado
+## Executar descoberta
 
-## 4.2 Requisitos
+-   Apontar para vCenter.
+-   Validar VMs listadas e métricas coletadas.
 
--   8 vCPU
--   16GB RAM
--   80GB disco
--   Porta 443 liberada
+## Criar avaliações (Assessments)
 
-## 4.3 Registrar
+-   Criar grupos lógicos.
+-   Criar avaliação Performance-Based:
+    -   Percentil (95%)
+    -   Fator conforto (1.2)
+    -   Região e tipo de disco
+-   Criar avaliação As-Is (opcional).
+-   Revisar relatórios de prontidão e custo.
 
-1.  Acessar https://IP-do-appliance
-2.  Login Azure
-3.  Associar ao projeto
+## Avaliar resultados
 
-------------------------------------------------------------------------
-
-# FASE 5 --- DESCOBERTA
-
-O appliance:
-
--   Conecta ao vCenter
--   Descobre VMs
--   Coleta CPU, RAM, Disco, NIC
--   Coleta performance (se habilitado)
-
-Aguardar alguns dias para coleta ideal.
+-   Corrigir VMs Not Ready.
+-   Identificar workloads que devem ir para PaaS.
 
 ------------------------------------------------------------------------
 
-# FASE 6 --- AVALIAÇÃO
+# Fase 3 --- Planejamento de execução (ondas)
 
-Criar avaliação Performance-Based:
+## Criar ondas
 
--   Região destino
--   Tipo de disco
--   Percentil (95%)
--   Fator conforto (1.2)
--   Hybrid Benefit
+-   Agrupar por dependência e criticidade.
+-   Definir data, owner, rede destino.
 
-Verificar:
+## Checklist pre-cutover
 
--   Ready for Azure
--   VM Size recomendada
--   Custo estimado
--   Problemas detectados
+-   Rede Azure pronta.
+-   Roles configuradas.
+-   Backups validados.
+-   Janela aprovada.
 
 ------------------------------------------------------------------------
 
-# FASE 7 --- INICIALIZAR INFRAESTRUTURA
+# Fase 4 --- Preparação do ambiente Azure
+
+## Infraestrutura
+
+-   Criar RGs, VNets, subnets, NSGs, route tables.
+-   Criar Storage accounts (se necessário).
+-   Criar Key Vault, Log Analytics e Recovery Services vault.
+
+## Permissions
+
+-   Atribuir roles necessárias.
+
+## Networking
+
+-   Validar VPN/ExpressRoute.
+-   Planejar IP addressing e DNS.
+
+------------------------------------------------------------------------
+
+# Fase 5 --- Preparação do appliance e replicação
+
+## Inicializar infraestrutura (PowerShell)
 
 ``` powershell
 Initialize-AzMigrateReplicationInfrastructure `
-  -ResourceGroupName "RG" `
-  -ProjectName "Projeto" `
+  -ResourceGroupName "MeuRG" `
+  -ProjectName "MeuProjeto" `
   -Scenario agentlessVMware `
   -TargetRegion "eastus"
 ```
 
-⚠️ Região não pode ser alterada depois.
+⚠ Região não alterável após execução.
+
+## Validar appliance
+
+-   Confirmar status saudável no portal.
+-   Revisar logs.
 
 ------------------------------------------------------------------------
 
-# FASE 8 --- INICIAR REPLICAÇÃO
+# Fase 6 --- Replicação inicial (agentless)
 
-1.  Azure Migrate → Migração e modernização
-2.  Replicar
-3.  Selecionar appliance e VMs
-4.  Configurar destino:
-    -   RG
-    -   Região
-    -   VNet
-    -   Subnet
-    -   VM Size
-    -   Disk type
-    -   Availability Zone
-    -   Hybrid Benefit
+## Configurar replicação
 
-Processo: 1. Snapshot 2. Initial replication 3. Delta replication
+Portal → Azure Migrate → Migração e modernização → Replicar.
 
-------------------------------------------------------------------------
+Configurar:
 
-# FASE 9 --- MONITORAMENTO
+-   Subscription e RG
+-   Região
+-   VNet/Subnet
+-   VM Size
+-   Disk Type
+-   Availability options
+-   Hybrid Benefit
 
-Verificar:
+## Fluxo técnico
 
--   Initial sync %
--   Replication health
--   RPO
--   Erros
+-   Snapshot
+-   Initial replication
+-   Delta replication (CBT)
 
-------------------------------------------------------------------------
+## Limitações
 
-# FASE 10 --- MIGRAÇÃO DE TESTE
-
-1.  Selecionar VM
-2.  Migrar teste
-3.  Escolher VNet isolada
-
-Validar:
-
--   Boot
--   Aplicação
--   Logs
--   Conectividade
-
-Remover VM de teste após validação.
+-   Não alterar região após primeira replicação.
+-   Limite recomendado por appliance (300--500 VMs).
 
 ------------------------------------------------------------------------
 
-# FASE 11 --- CUTOVER FINAL
-
-1.  Avisar stakeholders
-2.  Congelar mudanças
-3.  Desligar VM on-prem
-4.  Clicar em Migrar
-5.  Validar VM Azure
-6.  Atualizar DNS
-7.  Liberar usuários
-
-------------------------------------------------------------------------
-
-# FASE 12 --- PÓS-MIGRAÇÃO
-
-## Segurança
-
--   Defender for Cloud
--   JIT VM access
--   Disk encryption
--   NSGs restritivos
-
-## Backup
-
--   Azure Backup
+# Fase 7 --- Monitoramento e troubleshooting
 
 ## Monitoramento
 
--   Log Analytics
--   Azure Monitor
+Portal → Migração e modernização → Replicação.
 
-## Otimização
+Verificar:
 
-Após 30 dias:
+-   Initial sync
+-   Delta replication
+-   RPO/RTO
+-   Throughput
 
--   Reduzir SKU
--   Aplicar Reserved Instance
--   Ajustar tipo de disco
+## Problemas comuns
 
-------------------------------------------------------------------------
-
-# RISCOS COMUNS
-
--   Falta de mapeamento de dependências
--   Rede mal planejada
--   Não reduzir TTL DNS
--   Oversizing
--   Não desligar VM antes do cutover
+-   Authentication/network errors → revisar firewall/proxy.
+-   Snapshot failures → revisar permissões e datastore.
+-   Initial sync lento → verificar banda.
 
 ------------------------------------------------------------------------
 
-# RESUMO
+# Fase 8 --- Migração de teste
 
-1.  Planejamento
-2.  Descoberta
-3.  Avaliação
-4.  Planejamento de rede
-5.  Replicação
-6.  Teste
-7.  Cutover
-8.  Hardening
-9.  Otimização
+-   Selecionar VM → Migração de teste.
+-   Usar VNet isolada.
+-   Validar:
+    -   Boot
+    -   Aplicações
+    -   DNS
+    -   Conectividade
+-   Remover instância de teste após validação.
 
 ------------------------------------------------------------------------
+
+# Fase 9 --- Cutover final
+
+## Preparação
+
+-   Validar janela.
+-   Parar serviços críticos.
+-   Comunicar stakeholders.
+
+## Executar
+
+Portal → Migrate
+
+PowerShell:
+
+``` powershell
+Start-AzMigrateCommitMigration `
+  -ProjectName "MeuProjeto" `
+  -ResourceGroupName "MeuRG" `
+  -MachineName "VM01"
+```
+
+## Validar
+
+-   VM criada corretamente
+-   Serviços funcionando
+-   Firewall/NSG corretos
+
+------------------------------------------------------------------------
+
+# Fase 10 --- Pós-migração
+
+## Finalizar
+
+-   Concluir migração no portal.
+-   Atualizar inventário.
+
+## Segurança
+
+-   Habilitar Defender for Cloud.
+-   Revisar NSGs e Azure Policy.
+
+## Backup e DR
+
+-   Registrar no Azure Backup.
+-   Configurar Site Recovery se necessário.
+
+## Monitoramento
+
+-   Habilitar Log Analytics.
+-   Criar alertas.
+
+## Otimização de custo
+
+-   Revisar sizing após 30 dias.
+-   Avaliar Reserved Instances.
+-   Ajustar tipo de disco.
+
+------------------------------------------------------------------------
+
+# Boas práticas
+
+-   Fazer dry-run com poucas VMs.
+-   Testar rollback.
+-   Usar IaC (ARM/Terraform).
+-   Manter runbook atualizado.
+-   Verificar sincronização NTP.
+
+------------------------------------------------------------------------
+
+# Comandos úteis
+
+## Login
+
+``` powershell
+Connect-AzAccount
+Set-AzContext -SubscriptionId "<SUB_ID>"
+```
+
+## Inicializar infra
+
+``` powershell
+Initialize-AzMigrateReplicationInfrastructure -ResourceGroupName "MeuRG" -ProjectName "MeuProjeto" -Scenario agentlessVMware -TargetRegion "eastus"
+```
+
+## Iniciar replicação
+
+``` powershell
+Start-AzMigrateServerReplication -ProjectName "MeuProjeto" -ResourceGroupName "MeuRG" -MachineId $Machine.Id -TargetVMSize "Standard_D4s_v3" -TargetDiskType "Premium_LRS"
+```
+
+## Test migration
+
+``` powershell
+Start-AzMigrateTestMigration -ProjectName "MeuProjeto" -MachineName "VM01" -TestVirtualNetworkId "<VNetID>"
+```
+
+## Commit migration
+
+``` powershell
+Start-AzMigrateCommitMigration -ProjectName "MeuProjeto" -ResourceGroupName "MeuRG" -MachineName "VM01"
+```
+
+------------------------------------------------------------------------
+
+# Checklist Final
+
+-   Inventário completo
+-   Projeto Azure Migrate criado
+-   Avaliações revisadas
+-   Waves planejadas
+-   Infra Azure pronta
+-   Replicação OK
+-   Teste validado
+-   Cutover executado
+-   Migração concluída
+-   Backup e monitoramento ativos
+-   Documentação atualizada
+
+------------------------------------------------------------------------
+
+# Riscos e mitigação
+
+-   Rede insuficiente → testar throughput
+-   Snapshots falhando → revisar permissões
+-   SO incompatível → usar agent-based
+-   Licenciamento incorreto → validar Hybrid Benefit
+-   Dados divergentes → desligar origem antes do cutover
