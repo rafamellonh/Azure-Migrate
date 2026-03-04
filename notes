@@ -1,0 +1,55 @@
+storage account para o cache, premium
+workspace de logs
+
+VDDK :  https://developer.broadcom.com/sdks/vmware-virtual-disk-development-kit-vddk/latest/
+
+discover
+criar grupo
+criar assessment
+
+
+instalacao do agente : ir no grupo e clicar  Requires agent installation
+criar um log analytics
+
+Step 1: Download & install Microsoft Monitoring Agent (MMA)
+1. Windows 64-bit
+https://go.microsoft.com/fwlink/?LinkId=828603
+2. Linux
+https://go.microsoft.com/fwlink/?linkid=692028
+Learn more about installation of MMA agent.
+
+Step 2: Download and install dependency agent
+1. Windows 64-bit
+https://aka.ms/dependencyagentwindows
+2. Linux
+https://aka.ms/dependencyagentlinux
+Learn more about installation of dependency agent.
+If you have machines with no internet connectivity to Log Analytics, you need to download and install Log Analytics gateway.
+
+Learn more
+
+Step 3: Configure MMA agent
+72485433-2128-48cd-bfe4-4cf4784f146a
+Yv9st5kx7cqsJCWAlVy/0ShcyoCu2O65EzjTOoNW7F+mGrpgsXd3rN7IaS2lhWKo0494SFmS0R6kKGu/WyjI6A==
+
+
+-  Instalar cliente de MMA e Dependecy nos servidores Linux com os comandos abaixo:
+	Acessar o servidor via ssh:
+ssh demouser@192.168.0.8
+
+	Elevar o privilégio do usuário:
+sudo -s
+
+	Baixar o cliente de MMA (add os dados de workspace id e key):
+wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 72485433-2128-48cd-bfe4-4cf4784f146a -s Yv9st5kx7cqsJCWAlVy/0ShcyoCu2O65EzjTOoNW7F+mGrpgsXd3rN7IaS2lhWKo0494SFmS0R6kKGu/WyjI6A==
+
+	Reiniciar o cliente MMA:
+/opt/microsoft/omsagent/bin/service_control restart 72485433-2128-48cd-bfe4-4cf4784f146a
+
+	Baixar o client do dendency:
+wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
+
+	Instalar o client do dendency:
+sh InstallDependencyAgent-Linux64.bin -s
+
+chmod +x InstallDependencyAgent-Linux64.bin ./InstallDependencyAgent-Linux64.bin --extract
